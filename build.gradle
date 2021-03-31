@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.6.5'
+//    id 'org.jetbrains.kotlin.jvm' version '1.4.21'
+}
+
+group 'org.easysoc'
+version pluginVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    implementation 'edu.berkeley.cs:firrtl_2.12:1.4.2'
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    // version and localPath should not be specified at the same time
+    localPath "/home/itviewer/Downloads/software/chip"
+
+    // https://blog.jetbrains.com/platform/2019/06/java-functionality-extracted-as-a-plugin/
+    plugins 'java'
+    downloadSources false
+}
+
+runIde {
+    // https://bintray.com/jetbrains/intellij-jbr/jbrsdk11-linux-x64#files
+    jbrVersion "11_0_9_1b1145.77"
+    ideDirectory "/home/itviewer/Downloads/software/chip"
+    jvmArgs '-Didea.platform.prefix=Chip'
+    //for jbr11
+    jvmArgs '--add-exports=java.base/jdk.internal.vm=ALL-UNNAMED','-Djdk.module.illegalAccess.silent=true'
+}
+
+patchPluginXml {
+    sinceBuild "203"
+    untilBuild "211.*"
+}
+
+buildSearchableOptions.onlyIf { false }
+jarSearchableOptions.onlyIf { false }
+
+//prepareSandbox.onlyIf { false }

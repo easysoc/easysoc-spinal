@@ -1,0 +1,33 @@
+<idea-plugin url="https://www.easysoc.org">
+    <id>org.easysoc.spinal</id>
+    <name>EasySoC Spinal</name>
+    <vendor url="https://www.easysoc.org">EasySoC</vendor>
+    <change-notes><![CDATA[
+        <ul>
+            <li>First release</li>
+        </ul>
+    ]]></change-notes>
+    <description><![CDATA[
+    Create new SpinalHDL project based on ProjectWizard and Templates.<br>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.java</depends>
+    <depends>org.intellij.scala</depends>
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <moduleType id="SPINAL_MODULE" implementationClass="org.easysoc.plugins.spinal.module.SpinalModuleType"/>
+        <projectTemplate projectType="SPINAL_MODULE" templatePath="projectTemplates/Empty_SpinalHDL_Project.zip"/>
+        <projectTemplate projectType="SPINAL_MODULE" templatePath="projectTemplates/Counter_Example_With_SpinalSim.zip"/>
+    </extensions>
+
+    <actions>
+    <!-- Add your actions here -->
+    </actions>
+    <projectListeners>
+        <listener class="org.easysoc.plugins.spinal.listeners.ProjectListener" topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </projectListeners>
+</idea-plugin>
