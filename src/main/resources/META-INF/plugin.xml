@@ -4,11 +4,12 @@
     <vendor url="https://www.easysoc.org">EasySoC</vendor>
     <change-notes><![CDATA[
         <ul>
-            <li>First release</li>
+            <li>Fix conflict with Chisel plugin</li>
         </ul>
     ]]></change-notes>
     <description><![CDATA[
-    Create new SpinalHDL project based on ProjectWizard and Templates.<br>
+    Create new <a href="https://github.com/SpinalHDL/SpinalHDL">SpinalHDL</a> project based on ProjectWizard and Templates.<br>
+    See https://github.com/SpinalHDL/SpinalHDL for more information.
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html

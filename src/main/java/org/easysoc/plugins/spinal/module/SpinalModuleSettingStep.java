@@ -63,7 +63,7 @@ public class SpinalModuleSettingStep extends ModuleWizardStep {
       comboScalaVersions = new ComboBox(scalaVersions);
       Dimension preferSize = comboScalaVersions.getPreferredSize();
 
-      String[] sbtVersions = {"1.3.10", "1.4.7"};
+      String[] sbtVersions = {"1.4.9", "1.3.10"};
       comboSbtVersions = new ComboBox(sbtVersions);
       comboSbtVersions.setPreferredSize(preferSize);
 
@@ -97,16 +97,19 @@ public class SpinalModuleSettingStep extends ModuleWizardStep {
       if (projectBuilder instanceof TemplateModuleBuilder) {
         TemplateModuleBuilder builder = (TemplateModuleBuilder)projectBuilder;
 
-        Field fieldTemplate = TemplateModuleBuilder.class.getDeclaredField("myTemplate");
-        Field fieldAdditionalFields = TemplateModuleBuilder.class.getDeclaredField("myAdditionalFields");
+        if (builder.getModuleType().getId().equals("SPINAL_MODULE")) {
+          Field fieldTemplate = TemplateModuleBuilder.class.getDeclaredField("myTemplate");
+          Field fieldAdditionalFields = TemplateModuleBuilder.class.getDeclaredField("myAdditionalFields");
 
-        fieldTemplate.setAccessible(true);
-        fieldAdditionalFields.setAccessible(true);
+          fieldTemplate.setAccessible(true);
+          fieldAdditionalFields.setAccessible(true);
 
-        ArchivedProjectTemplate myTemplate = (ArchivedProjectTemplate)fieldTemplate.get(builder);
-        List<WizardInputField<?>> myAdditionalFields = (List<WizardInputField<?>>) fieldAdditionalFields.get(builder);
+          ArchivedProjectTemplate myTemplate = (ArchivedProjectTemplate)fieldTemplate.get(builder);
+          List<WizardInputField<?>> myAdditionalFields = (List<WizardInputField<?>>) fieldAdditionalFields.get(builder);
 
-        myWizardContext.setProjectBuilder(new SpinalTemplateModuleBuilder(myTemplate,builder.getModuleType(),myAdditionalFields,myWizardContext));
+          myWizardContext.setProjectBuilder(new SpinalTemplateModuleBuilder(myTemplate,builder.getModuleType(),myAdditionalFields,myWizardContext));
+        }
+
       }
     } catch (NoSuchFieldException | IllegalAccessException e) {
       e.printStackTrace();
