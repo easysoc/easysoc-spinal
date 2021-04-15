@@ -4,12 +4,12 @@
     <vendor url="https://www.easysoc.org">EasySoC</vendor>
     <change-notes><![CDATA[
         <ul>
-            <li>Fix conflict with Chisel plugin</li>
+            <li>Create SpinalHDL Component from fileTemplates</li>
         </ul>
     ]]></change-notes>
     <description><![CDATA[
-    Create new <a href="https://github.com/SpinalHDL/SpinalHDL">SpinalHDL</a> project based on ProjectWizard and Templates.<br>
-    See https://github.com/SpinalHDL/SpinalHDL for more information.
+    Create new SpinalHDL project based on ProjectWizard and Templates.<br>
+    See <a href="https://github.com/SpinalHDL/SpinalHDL">https://github.com/SpinalHDL/SpinalHDL</a> for more information.
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
@@ -26,7 +26,10 @@
     </extensions>
 
     <actions>
-    <!-- Add your actions here -->
+        <!-- Add your actions here -->
+        <action id="CreateSpinalComponentAction" class="org.easysoc.plugins.spinal.actions.CreateSpinalComponentAction">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
     </actions>
     <projectListeners>
         <listener class="org.easysoc.plugins.spinal.listeners.ProjectListener" topic="com.intellij.openapi.project.ProjectManagerListener"/>

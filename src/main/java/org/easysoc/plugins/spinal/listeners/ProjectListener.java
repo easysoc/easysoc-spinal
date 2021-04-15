@@ -33,14 +33,11 @@ public class ProjectListener implements ProjectManagerListener {
   }
 
   private void showFirstImportMessage() {
-    String ivyHome = SystemProperties.getUserHome() + "/.ivy2\n";
-
     String message = "You are creating a SpinalHDL project for the first time using the Project Wizard.\n" +
             "If you have never used the sbt build tool, the application will try to resolve\n" +
-            "it's dependencies and download all dependent packages to the directory:\n" + ivyHome +
-            "The initial dependency resolution may takes some time, please be patient!\n";
-//    Messages.showInfoMessage(message, "First Project Import Tips");
-    Notifications.Bus.notify(new Notification("SpinalHDL", "First project import tips",
+            "and download all dependent packages of the current project.\n" +
+            "This may takes some time, please be patient!\n";
+    Notifications.Bus.notify(new Notification("","First Project Import Tips",
             message, NotificationType.INFORMATION));
   }
 }

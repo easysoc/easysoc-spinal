@@ -63,7 +63,7 @@ public class SpinalModuleSettingStep extends ModuleWizardStep {
       comboScalaVersions = new ComboBox(scalaVersions);
       Dimension preferSize = comboScalaVersions.getPreferredSize();
 
-      String[] sbtVersions = {"1.4.9", "1.3.10"};
+      String[] sbtVersions = {"1.5.0", "1.3.10"};
       comboSbtVersions = new ComboBox(sbtVersions);
       comboSbtVersions.setPreferredSize(preferSize);
 

@@ -1,0 +1,13 @@
+#if ((${PACKAGE_NAME} && ${PACKAGE_NAME} != ""))package ${PACKAGE_NAME} #end
+#parse("File Header.java")
+import spinal.core._
+import spinal.lib._
+
+class ${NAME} extends Component {
+  val io = new Bundle {
+    val a, b = in UInt(8 bits)
+    val y = out UInt(8 bits)
+  }
+  #[[$END$]]#
+}
+

@@ -18,7 +18,7 @@ dependencies {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     // version and localPath should not be specified at the same time
-    localPath "/home/itviewer/Downloads/software/chip"
+    localPath "/home/itviewer/Downloads/software/idea-IC"
 
     // https://blog.jetbrains.com/platform/2019/06/java-functionality-extracted-as-a-plugin/
     plugins 'java'
